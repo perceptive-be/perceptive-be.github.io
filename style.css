@@ -1,0 +1,51 @@
+/* Perceptive SRL: one plain stylesheet, no web fonts, no scripts. */
+/* Light only, since the logo is drawn on white. The blues are the logo's
+   Pantone Process Blue, darkened for text. */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #1f2933;
+  --muted: #5a6670;
+  --accent: #006ba6;
+  --brand: #0085ca;
+  --rule: #dfe5ea;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.wrap { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header { border-bottom: 3px solid var(--brand); }
+header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1.5rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.brand { display: block; line-height: 0; }
+.brand img { display: block; width: 200px; height: auto; }
+nav a { color: var(--muted); text-decoration: none; margin-right: 1rem; }
+nav a:last-child { margin-right: 0; }
+nav a:hover, nav a[aria-current="page"] { color: var(--accent); }
+/* The language picker: after the menu on wide screens, beside the logo on narrow ones. */
+.brand { order: 0; }
+nav { order: 1; margin-left: auto; }
+.lang { order: 2; font-size: 0.85rem; }
+.lang a { color: var(--muted); text-decoration: none; padding: 0.15rem 0.3rem; border-radius: 3px; }
+.lang a:hover { color: var(--accent); }
+.lang a[aria-current="true"] { color: #fff; background: var(--brand); }
+@media (max-width: 48rem) {
+  .lang { order: 1; margin-left: auto; }
+  nav { order: 2; flex-basis: 100%; }
+}
+main.wrap { padding-top: 2rem; padding-bottom: 3rem; }
+h1 { font-size: 1.8rem; line-height: 1.25; margin: 0 0 1rem; }
+h2 { font-size: 1.2rem; margin: 2rem 0 0.5rem; }
+a { color: var(--accent); }
+.lead { font-size: 1.1rem; }
+.note { color: var(--muted); font-size: 0.95rem; }
+dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.4rem 1.5rem; }
+dt { color: var(--muted); }
+dd { margin: 0; }
+@media (max-width: 30rem) { dl { grid-template-columns: 1fr; } dd { margin-bottom: 0.6rem; } }
+footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.85rem; padding: 1.25rem 0 2rem; }
+footer p { margin: 0.25rem 0; }
